@@ -1,8 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+## Project Overview
 
 In the project directory, you can run:
 
@@ -11,60 +7,88 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# YouTube Data v3 API React App
 
-### `npm test`
+Welcome to the YouTube Data v3 API React App! This application allows users to search for YouTube videos, view video details, create playlists, and manage them collaboratively. The project is built using React and Material-UI components, with data fetched from the YouTube Data API v3.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Files and Directories
 
-### `npm run build`
+- **src/**
+  - **components/**
+    - `App.js`: Main application component.
+    - `Navbar.js`: Navigation bar component.
+    - `SearchBar.js`: Component for the search bar.
+    - `VideoList.js`: Component to display a list of videos.
+    - `VideoDetail.js`: Component to display details of a selected video.
+    - `PlaylistForm.js`: Component for creating playlists.
+    - `PlaylistList.js`: Component to display a list of playlists.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  - **api/**
+    - `youtube.js`: Axios instance for making requests to the YouTube Data API.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  - **services/**
+    - `PlaylistService.js`: Service for playlist-related functionality.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - **App.css**: Styles for the application.
 
-### `npm run eject`
+### Components
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### 1. `App.js`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Purpose:** The main component rendering the entire application.
+- **Dependencies:** `react`, `@material-ui/core`, `youtube-api-v3-search`
+- **State:** `videos`, `selectedVideo`, `playlists`
+- **Functions:** `onVideoSelect(video)`, `handleSubmit(searchTerm)`, `handleCreatePlaylist(playlistName)`, `handleSelectPlaylist(playlist)`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### 2. `Navbar.js`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Purpose:** Navigation bar component.
+- **Dependencies:** `react`, `@material-ui/core`
 
-## Learn More
+#### 3. `SearchBar.js`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Purpose:** Component for the search bar.
+- **Dependencies:** `react`, `@material-ui/core`
+- **Props:** `onFormSubmit`
+- **State:** `searchTerm`
+- **Functions:** `handleChange(event)`, `handleSubmit(event)`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### 4. `VideoList.js`
 
-### Code Splitting
+- **Purpose:** Component to display a list of videos.
+- **Dependencies:** `react`, `@material-ui/core`
+- **Props:** `videos`, `onVideoSelect`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### 5. `VideoDetail.js`
 
-### Analyzing the Bundle Size
+- **Purpose:** Component to display details of a selected video.
+- **Dependencies:** `react`, `@material-ui/core`
+- **Props:** `video`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### 6. `PlaylistForm.js`
 
-### Making a Progressive Web App
+- **Purpose:** Component for creating playlists.
+- **Dependencies:** `react`, `@material-ui/core`, `youtube-data-v3-api`
+- **Props:** `onCreatePlaylist`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### 7. `PlaylistList.js`
 
-### Advanced Configuration
+- **Purpose:** Component to display a list of playlists.
+- **Dependencies:** `react`, `@material-ui/core`
+- **Props:** `playlists`, `onSelectPlaylist`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### 8. `youtube.js` (in the `api` directory)
 
-### Deployment
+- **Purpose:** Axios instance for making requests to the YouTube Data API.
+- **Dependencies:** `axios`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### 9. `PlaylistService.js` (in the `services` directory)
 
-### `npm run build` fails to minify
+- **Purpose:** Service for playlist-related functionality.
+- **Dependencies:** None
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Code Style
+
+- Follows Material-UI component structure.
+- Utilizes functional components and hooks.
+- Keeps state management and API requests within the components.

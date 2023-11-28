@@ -1,13 +1,25 @@
 import React from "react";
+import { Grid, Paper, Typography, makeStyles } from "@material-ui/core";
 
-import { Grid, Paper, Typography } from "@material-ui/core";
-import videoDetail from "./VideoDetail";
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "1rem",
+    padding: "1rem",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+  },
+}));
 
-const videoItem = ({ video, onVideoSelect }) => {
+const VideoItem = ({ video, onVideoSelect }) => {
+  const classes = useStyles();
+
   return (
-    <Grid item xs={12}>
+    <Grid item xs={12} sm={6} md={4} lg={4}>
       <Paper
-        style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
+        className={classes.paper}
         onClick={() => onVideoSelect(video)}
       >
         <img
@@ -23,4 +35,4 @@ const videoItem = ({ video, onVideoSelect }) => {
   );
 };
 
-export default videoItem;
+export default VideoItem;
